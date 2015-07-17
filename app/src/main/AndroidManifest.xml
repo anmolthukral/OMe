@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".debit_activity"/>
+        <activity android:name=".credit_activity"/>
     </application>
 
 </manifest>
