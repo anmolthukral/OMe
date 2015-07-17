@@ -10,7 +10,7 @@
         android:id="@+id/textView6"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="41sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         android:typeface="serif" />
 
