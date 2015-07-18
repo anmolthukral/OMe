@@ -18,9 +18,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class nav_drawer_activity extends ActionBarActivity
@@ -41,6 +43,7 @@ public class nav_drawer_activity extends ActionBarActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_nav_drawer_activity);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
@@ -52,15 +55,17 @@ public class nav_drawer_activity extends ActionBarActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        // toolbar code
+        /*toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        */
+        //FAB code
         FAB = (ImageButton) findViewById(R.id.imageButton);
         FAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
+                //Toast.makeText(getApplicationContext(),"Button clicked",Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(nav_drawer_activity.this, SecondActivity.class);
                 startActivity(i);
 
