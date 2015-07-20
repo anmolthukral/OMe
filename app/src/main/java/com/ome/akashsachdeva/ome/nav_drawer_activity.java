@@ -38,7 +38,7 @@ public class nav_drawer_activity extends ActionBarActivity
      */
     private CharSequence mTitle;
     Toolbar toolbar;
-    ImageButton FAB;
+   // ImageButton FAB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +60,7 @@ public class nav_drawer_activity extends ActionBarActivity
         setSupportActionBar(toolbar);
         */
         //FAB code
-        FAB = (ImageButton) findViewById(R.id.imageButton);
+       /* FAB = (ImageButton) findViewById(R.id.imageButton);
         FAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +71,7 @@ public class nav_drawer_activity extends ActionBarActivity
 
 
             }
-        });
+        });*/
 
 
     }
