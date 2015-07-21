@@ -70,14 +70,7 @@ public class credit_activity extends ActionBarActivity {
         return true;
     }
 
-    public void addcredit(View v){
-        Intent i = new Intent(credit_activity.this, SecondActivity.class);
-        startActivity(i);
-    }
-    public boolean onKeyDown(int keycode, KeyEvent event) {
-        if (keycode == KeyEvent.KEYCODE_BACK) {
-            moveTaskToBack(true);
-        }
-        return super.onKeyDown(keycode, event);
-    }
+
+
+
 }
