@@ -13,14 +13,12 @@ import java.util.HashMap;
 public class MyDBHandler extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION=1;
-    public static final String DATABASE_NAME = "ome.db";
-    public static final String TABLE_NAME = "userdata";
+    public static final String DATABASE_NAME = "ome1.db";
+    public static final String TABLE_NAME = "userdata1";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_EMAIL = "email";
     public static final String COLUMN_AMOUNT = "amount";
-    //public static final String CONTACTS_COLUMN_CITY = "place";
-   // public static final String CONTACTS_COLUMN_PHONE = "phone";
     private HashMap hp;
 
     public MyDBHandler(Context context)
@@ -32,7 +30,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // TODO Auto-generated method stub
         db.execSQL(
-                "create table userdata " +
+                "create table userdata1 " +
                         "(id integer primary key, name text,email text,amount integer)"
         );
     }
@@ -40,7 +38,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // TODO Auto-generated method stub
-        db.execSQL("DROP TABLE IF EXISTS userdata");
+        db.execSQL("DROP TABLE IF EXISTS userdata1");
         onCreate(db);
     }
 
@@ -49,17 +47,15 @@ public class MyDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("name", name);
-      //  contentValues.put("phone", phone);
         contentValues.put("email", email);
-        //contentValues.put("street", street);
         contentValues.put("amount", amount);
-        db.insert("userdata", null, contentValues);
+        db.insert("userdata1", null, contentValues);
         return true;
     }
 
     public Cursor getData(int id){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from userdata where id="+id+"", null );
+        Cursor res =  db.rawQuery( "select * from userdata1 where id="+id+"", null );
         return res;
     }
 
@@ -74,18 +70,16 @@ public class MyDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("name", name);
-        //contentValues.put("phone", phone);
         contentValues.put("email", email);
-        //contentValues.put("street", street);
         contentValues.put("amount", amount);
-        db.update("userdata", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
+        db.update("userdata1", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
         return true;
     }
 
     public Integer deleteContact (Integer id)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete("userdata",
+        return db.delete("userdata1",
                 "id = ? ",
                 new String[] { Integer.toString(id) });
     }
@@ -96,7 +90,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
         //hp = new HashMap();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from userdata", null );
+        Cursor res =  db.rawQuery( "select * from userdata1", null );
         res.moveToFirst();
 
         while(res.isAfterLast() == false){

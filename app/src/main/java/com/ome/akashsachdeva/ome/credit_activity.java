@@ -1,8 +1,10 @@
 package com.ome.akashsachdeva.ome;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
@@ -14,6 +16,7 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -24,18 +27,22 @@ public class credit_activity extends ActionBarActivity {
     ImageButton FAB;
     private ListView obj;
     MyDBHandler mydb;
+    Utility ut;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credit);
 
+
         FAB = (ImageButton) findViewById(R.id.creditadd);
         FAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Bundle dataBundle = new Bundle();
+                dataBundle.putInt("id", 0);
                 //Toast.makeText(getApplicationContext(),"Button clicked",Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(credit_activity.this, SecondActivity.class);
+                i.putExtras(dataBundle);
                 startActivity(i);
 
 
@@ -44,8 +51,8 @@ public class credit_activity extends ActionBarActivity {
         mydb = new MyDBHandler(this);
         ArrayList array_list = mydb.getAllData();
         ArrayAdapter arrayAdapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1, array_list);
-
         obj = (ListView)findViewById(R.id.listView1);
+        ut.setListViewHeightBasedOnChildren(obj);
         obj.setAdapter(arrayAdapter);
         obj.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -56,13 +63,15 @@ public class credit_activity extends ActionBarActivity {
                 Bundle dataBundle = new Bundle();
                 dataBundle.putInt("id", id_To_Search);
 
-                Intent intent = new Intent(getApplicationContext(),com.ome.akashsachdeva.ome.SecondActivity.class);
+                Intent intent = new Intent(com.ome.akashsachdeva.ome.credit_activity.this, com.ome.akashsachdeva.ome.SecondActivity.class);
 
                 intent.putExtras(dataBundle);
                 startActivity(intent);
             }
         });
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -70,14 +79,12 @@ public class credit_activity extends ActionBarActivity {
         return true;
     }
 
-    public void addcredit(View v){
-        Intent i = new Intent(credit_activity.this, SecondActivity.class);
-        startActivity(i);
-    }
-    public boolean onKeyDown(int keycode, KeyEvent event) {
+
+  /*  public boolean onKeyDown(int keycode, KeyEvent event) {
         if (keycode == KeyEvent.KEYCODE_BACK) {
             moveTaskToBack(true);
         }
         return super.onKeyDown(keycode, event);
-    }
+    } */
+
 }

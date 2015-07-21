@@ -28,6 +28,7 @@ public class SecondActivity extends ActionBarActivity {
     TextView amount;
     int id_To_Update = 0;
     Toolbar toolbar;
+    Button b1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,40 @@ public class SecondActivity extends ActionBarActivity {
 
         // toolbar = (Toolbar) findViewById(R.id.toolbar);
         // setSupportActionBar(toolbar);
+
+        b1=(Button)findViewById(R.id.button3);
+
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle extras = getIntent().getExtras();
+                if(extras !=null)
+                {
+                    int Value = extras.getInt("id");
+                    if(Value>0){
+                        if(mydb.updateContact(id_To_Update, name.getText().toString(), email.getText().toString(), amount.getText().toString())){
+                            Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(),com.ome.akashsachdeva.ome.credit_activity.class);
+                            startActivity(intent);
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(), "not Updated", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else{
+                        if(mydb.insertContact(name.getText().toString(), email.getText().toString(), amount.getText().toString())){
+                            Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
+                        }
+
+                        else{
+                            Toast.makeText(getApplicationContext(), "not done", Toast.LENGTH_SHORT).show();
+                        }
+                        Intent intent = new Intent(getApplicationContext(),com.ome.akashsachdeva.ome.credit_activity.class);
+                        startActivity(intent);
+                    }
+                }
+            }
+        });
 
         name = (TextView) findViewById(R.id.editText);
         email = (TextView) findViewById(R.id.editText3);
@@ -149,7 +184,7 @@ public class SecondActivity extends ActionBarActivity {
 
         }
     }
-    public void run(View view)
+   public void test(View view)
     {
         Bundle extras = getIntent().getExtras();
         if(extras !=null)
