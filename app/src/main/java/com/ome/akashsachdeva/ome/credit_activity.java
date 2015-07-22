@@ -27,7 +27,7 @@ public class credit_activity extends ActionBarActivity {
     ImageButton FAB;
     private ListView obj;
     MyDBHandler mydb;
-    Utility ut;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +52,7 @@ public class credit_activity extends ActionBarActivity {
         ArrayList array_list = mydb.getAllData();
         ArrayAdapter arrayAdapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1, array_list);
         obj = (ListView)findViewById(R.id.listView1);
-        ut.setListViewHeightBasedOnChildren(obj);
+        //ut.setListViewHeightBasedOnChildren(obj);
         obj.setAdapter(arrayAdapter);
         obj.setOnItemClickListener(new OnItemClickListener() {
             @Override

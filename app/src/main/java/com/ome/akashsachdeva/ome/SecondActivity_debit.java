@@ -1,27 +1,22 @@
 package com.ome.akashsachdeva.ome;
 
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
-
-import android.app.Activity;
 import android.app.AlertDialog;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class SecondActivity extends ActionBarActivity {
-    private MyDBHandler mydb;
+public class SecondActivity_debit extends ActionBarActivity {
+    private MyDBHandler_debit mydb;
 
     TextView name;
     TextView email;
@@ -50,7 +45,7 @@ public class SecondActivity extends ActionBarActivity {
                     if(Value>0){
                         if(mydb.updateContact(id_To_Update, name.getText().toString(), email.getText().toString(), amount.getText().toString())){
                             Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(),com.ome.akashsachdeva.ome.credit_activity.class);
+                            Intent intent = new Intent(getApplicationContext(),debit_activity.class);
                             startActivity(intent);
                         }
                         else{
@@ -65,7 +60,7 @@ public class SecondActivity extends ActionBarActivity {
                         else{
                             Toast.makeText(getApplicationContext(), "not done", Toast.LENGTH_SHORT).show();
                         }
-                        Intent intent = new Intent(getApplicationContext(),com.ome.akashsachdeva.ome.credit_activity.class);
+                        Intent intent = new Intent(getApplicationContext(),debit_activity.class);
                         startActivity(intent);
                     }
                 }
@@ -76,7 +71,7 @@ public class SecondActivity extends ActionBarActivity {
         email = (TextView) findViewById(R.id.editText3);
         amount = (TextView) findViewById(R.id.editText2);
 
-        mydb = new MyDBHandler(this);
+        mydb = new MyDBHandler_debit(this);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -87,9 +82,9 @@ public class SecondActivity extends ActionBarActivity {
                 id_To_Update = Value;
                 rs.moveToFirst();
 
-                String nam = rs.getString(rs.getColumnIndex(MyDBHandler.COLUMN_NAME));
-                String emai = rs.getString(rs.getColumnIndex(MyDBHandler.COLUMN_EMAIL));
-                String amo = rs.getString(rs.getColumnIndex(MyDBHandler.COLUMN_AMOUNT));
+                String nam = rs.getString(rs.getColumnIndex(MyDBHandler_debit.COLUMN_NAME));
+                String emai = rs.getString(rs.getColumnIndex(MyDBHandler_debit.COLUMN_EMAIL));
+                String amo = rs.getString(rs.getColumnIndex(MyDBHandler_debit.COLUMN_AMOUNT));
 
                 if (!rs.isClosed()) {
                     rs.close();
@@ -165,7 +160,7 @@ public class SecondActivity extends ActionBarActivity {
                             public void onClick(DialogInterface dialog, int id) {
                                 mydb.deleteContact(id_To_Update);
                                 Toast.makeText(getApplicationContext(), "Deleted Successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(), com.ome.akashsachdeva.ome.credit_activity.class);
+                                Intent intent = new Intent(getApplicationContext(), debit_activity.class);
                                 startActivity(intent);
                             }
                         })
