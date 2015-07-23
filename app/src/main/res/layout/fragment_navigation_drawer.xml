@@ -3,4 +3,5 @@
     android:layout_height="match_parent" android:choiceMode="singleChoice"
     android:divider="@android:color/transparent" android:dividerHeight="0dp"
     android:background="#cccc" tools:context="com.ome.akashsachdeva.ome.NavigationDrawerFragment"
-    android:id="@+id/listview"/>
+    android:id="@+id/listview"
+    android:backgroundTint="@android:color/holo_red_light"/>
