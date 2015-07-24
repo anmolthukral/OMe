@@ -52,7 +52,6 @@ public class credit_activity extends ActionBarActivity {
         ArrayList array_list = mydb.getAllData();
         ArrayAdapter arrayAdapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1, array_list);
         obj = (ListView)findViewById(R.id.listView1);
-        //ut.setListViewHeightBasedOnChildren(obj);
         obj.setAdapter(arrayAdapter);
         obj.setOnItemClickListener(new OnItemClickListener() {
             @Override

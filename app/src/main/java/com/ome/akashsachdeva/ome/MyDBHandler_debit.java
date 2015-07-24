@@ -109,4 +109,16 @@ public class MyDBHandler_debit extends SQLiteOpenHelper {
         }
         return array_list;
     }
+    public Integer dbtostr(){
+        int dat =0;
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(
+                "SELECT SUM(amount) FROM userdata2", null);
+        if(cursor.moveToFirst()) {
+            dat = cursor.getInt(0);
+        }
+
+        return dat;
+    }
 }

@@ -38,7 +38,11 @@ public class nav_drawer_activity extends ActionBarActivity
      */
     private CharSequence mTitle;
     Toolbar toolbar;
-   // ImageButton FAB;
+    MyDBHandler mydb;
+    TextView printcredit;
+    MyDBHandler_debit mydb2;
+    TextView printdebit;
+    // ImageButton FAB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +58,12 @@ public class nav_drawer_activity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
-
+        mydb = new MyDBHandler(this);
+        printcredit=(TextView)findViewById(R.id.textView5);
+        mydb2 = new MyDBHandler_debit(this);
+        printdebit=(TextView)findViewById(R.id.finaldebit);
+         printdb_credit();
+        printdb_debit();
         // toolbar code
         /*toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -75,6 +84,17 @@ public class nav_drawer_activity extends ActionBarActivity
 
 
     }
+    public void printdb_credit(){
+        Integer dbString = mydb.dbtostr();
+        String str = dbString.toString();
+        printcredit.setText(str);
+    }
+    public void printdb_debit(){
+        Integer dbString = mydb2.dbtostr();
+        String str = dbString.toString();
+        printdebit.setText(str);
+    }
+
 
     public void creditbutton(View v){
         Intent i = new Intent(nav_drawer_activity.this, credit_activity.class);
