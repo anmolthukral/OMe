@@ -26,6 +26,7 @@ public class SecondActivity extends ActionBarActivity {
     TextView name;
     TextView email;
     TextView amount;
+    TextView number;
     int id_To_Update = 0;
     Toolbar toolbar;
     Button b1;
@@ -48,7 +49,7 @@ public class SecondActivity extends ActionBarActivity {
                 {
                     int Value = extras.getInt("id");
                     if(Value>0){
-                        if(mydb.updateContact(id_To_Update, name.getText().toString(), email.getText().toString(), amount.getText().toString())){
+                        if(mydb.updateContact(id_To_Update, name.getText().toString(), email.getText().toString(), amount.getText().toString(),number.getText().toString())){
                             Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(),com.ome.akashsachdeva.ome.credit_activity.class);
                             startActivity(intent);
@@ -58,7 +59,7 @@ public class SecondActivity extends ActionBarActivity {
                         }
                     }
                     else{
-                        if(mydb.insertContact(name.getText().toString(), email.getText().toString(), amount.getText().toString())){
+                        if(mydb.insertContact(name.getText().toString(), email.getText().toString(), amount.getText().toString(),number.getText().toString())){
                             Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
                         }
 
@@ -75,6 +76,7 @@ public class SecondActivity extends ActionBarActivity {
         name = (TextView) findViewById(R.id.editText);
         email = (TextView) findViewById(R.id.editText3);
         amount = (TextView) findViewById(R.id.editText2);
+        number = (TextView) findViewById(R.id.editText4);
 
         mydb = new MyDBHandler(this);
 
@@ -90,6 +92,7 @@ public class SecondActivity extends ActionBarActivity {
                 String nam = rs.getString(rs.getColumnIndex(MyDBHandler.COLUMN_NAME));
                 String emai = rs.getString(rs.getColumnIndex(MyDBHandler.COLUMN_EMAIL));
                 String amo = rs.getString(rs.getColumnIndex(MyDBHandler.COLUMN_AMOUNT));
+                String num = rs.getString(rs.getColumnIndex(MyDBHandler_debit.COLUMN_NUMBER));
 
                 if (!rs.isClosed()) {
                     rs.close();
@@ -112,6 +115,10 @@ public class SecondActivity extends ActionBarActivity {
                 amount.setText((CharSequence) amo);
                 amount.setFocusable(false);
                 amount.setClickable(false);
+
+                number.setText((CharSequence) num);
+                number.setFocusable(false);
+                number.setClickable(false);
             }
         }
     }
@@ -155,6 +162,10 @@ public class SecondActivity extends ActionBarActivity {
                 amount.setEnabled(true);
                 amount.setFocusableInTouchMode(true);
                 amount.setClickable(true);
+
+                number.setEnabled(true);
+                number.setFocusableInTouchMode(true);
+                number.setClickable(true);
 
                 return true;
             case R.id.Delete_Item:

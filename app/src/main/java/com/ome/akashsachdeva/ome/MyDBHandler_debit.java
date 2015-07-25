@@ -20,6 +20,8 @@ public class MyDBHandler_debit extends SQLiteOpenHelper {
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_EMAIL = "email";
     public static final String COLUMN_AMOUNT = "amount";
+    public static final String COLUMN_NUMBER = "number";
+
     private HashMap hp;
     //boolean val;
     public MyDBHandler_debit(Context context)
@@ -39,7 +41,7 @@ public class MyDBHandler_debit extends SQLiteOpenHelper {
         else{*/
             db.execSQL(
                     "create table userdata2 " +
-                            "(id integer primary key, name text,email text,amount integer)"
+                            "(id integer primary key, name text,email text,amount integer,number integer)"
             );
 
 
@@ -52,13 +54,14 @@ public class MyDBHandler_debit extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertContact  (String name, String email,String amount)
+    public boolean insertContact  (String name, String email,String amount,String number)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("name", name);
         contentValues.put("email", email);
         contentValues.put("amount", amount);
+        contentValues.put("number", number);
         db.insert("userdata2", null, contentValues);
         return true;
     }
@@ -75,13 +78,14 @@ public class MyDBHandler_debit extends SQLiteOpenHelper {
         return numRows;
     }
 
-    public boolean updateContact (Integer id, String name, String email,String amount)
+    public boolean updateContact (Integer id, String name, String email,String amount,String number)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("name", name);
         contentValues.put("email", email);
         contentValues.put("amount", amount);
+        contentValues.put("number", number);
         db.update("userdata2", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
         return true;
     }
