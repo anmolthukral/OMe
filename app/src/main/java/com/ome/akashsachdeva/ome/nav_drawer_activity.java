@@ -113,20 +113,30 @@ public class nav_drawer_activity extends ActionBarActivity
 
         switch(position){
             case 0:
-                objFragment=new menu1_fragment();
+                Intent a = new Intent(nav_drawer_activity.this, credit_activity.class);
+                startActivity(a);
                 break;
             case 1:
-                objFragment=new menu2_fragment();
+                Intent b = new Intent(nav_drawer_activity.this, debit_activity.class);
+                startActivity(b);
+                break;
+
+            case 2:
+
+               break;
+            case 3:
+                Intent c = new Intent(nav_drawer_activity.this, about_activity.class);
+                startActivity(c);
                 break;
         }
 
 
 
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
+       /*FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.container,objFragment)
-                .commit();
+                .commit();*/
     }
 
     public void onSectionAttached(int number) {
@@ -136,6 +146,12 @@ public class nav_drawer_activity extends ActionBarActivity
                 break;
             case 2:
                 mTitle = getString(R.string.title_section2);
+                break;
+            case 3:
+                mTitle = getString(R.string.title_section3);
+                break;
+            case 4:
+                mTitle = getString(R.string.title_section4);
                 break;
 //            case 3:
   //              mTitle = getString(R.string.title_section3);

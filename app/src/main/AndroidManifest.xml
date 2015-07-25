@@ -20,6 +20,7 @@
         <activity android:name=".credit_activity"/>
         <activity android:name=".SecondActivity"/>
         <activity android:name=".SecondActivity_debit"/>
+        <activity android:name=".about_activity"/>
     </application>
 
 </manifest>
