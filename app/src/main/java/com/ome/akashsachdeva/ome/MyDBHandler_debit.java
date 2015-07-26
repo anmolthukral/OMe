@@ -41,7 +41,7 @@ public class MyDBHandler_debit extends SQLiteOpenHelper {
         else{*/
             db.execSQL(
                     "create table userdata2 " +
-                            "(id integer primary key, name text,email text,amount integer,number integer)"
+                            "(id integer primary key, name text,email text,amount integer,number blob)"
             );
 
 

@@ -125,14 +125,14 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
         return dat;
     }
-    public Integer getnum(int id){
-        int dat =0;
+    public Long getnum(int id){
+        Long dat=null;
         SQLiteDatabase db = getReadableDatabase();
 
         Cursor cursor = db.rawQuery(
                 "SELECT number FROM userdata1 where id="+id+"", null);
         if(cursor.moveToFirst()) {
-            dat = cursor.getInt(0);
+            dat = cursor.getLong(0);
         }
 
         return dat;
