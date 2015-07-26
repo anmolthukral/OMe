@@ -55,11 +55,11 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/name"
         android:layout_alignBottom="@+id/Name"
         android:layout_toRightOf="@+id/textView7"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2" />
+        android:layout_alignRight="@+id/amount"
+        android:layout_alignEnd="@+id/amount" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
         android:textColor="@android:color/black"
         android:typeface="serif"
         android:layout_marginTop="10dp"
-        android:layout_alignTop="@+id/editText2"
+        android:layout_alignTop="@+id/amount"
         android:layout_alignLeft="@+id/textView8"
         android:layout_alignStart="@+id/textView8" />
 
@@ -80,11 +80,12 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/amount"
         android:layout_marginTop="25dp"
         android:layout_below="@+id/Name"
         android:layout_marginLeft="110dp"
-        />
+        android:layout_alignRight="@+id/details"
+        android:layout_alignEnd="@+id/details" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -95,7 +96,7 @@
         android:textColor="@android:color/black"
         android:typeface="serif"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/amount"
         android:layout_alignRight="@+id/Name"
         android:layout_alignEnd="@+id/Name" />
 
@@ -104,7 +105,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editText3"
+        android:id="@+id/email"
         android:layout_alignBottom="@+id/textView8"
         android:layout_toRightOf="@+id/textView7"
         android:layout_alignParentRight="true"
@@ -129,7 +130,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText4"
+        android:id="@+id/mobile"
         android:layout_marginLeft="130dp"
         android:layout_alignBottom="@+id/textView9"
       />
@@ -139,56 +140,48 @@
         android:layout_height="wrap_content"
         android:text="call"
         android:id="@+id/button4"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/textView8"
-        android:layout_alignStart="@+id/textView8"
-        android:onClick="callme"
-        android:background="@android:color/transparent"
+        android:onClick="callme1"
         android:src="@drawable/phone"
-        android:layout_toLeftOf="@+id/editText3"
-        android:layout_toStartOf="@+id/editText3"
-        android:layout_alignTop="@+id/button5" />
+        android:background="@android:color/transparent"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/details"
+        android:layout_toStartOf="@+id/details" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="sms"
         android:id="@+id/button5"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/textView9"
-        android:layout_toEndOf="@+id/textView9"
-        android:onClick="smsme"
+        android:onClick="smsme1"
         android:src="@drawable/sms"
         android:background="@android:color/transparent"
-        />
-
-
-
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textView9"
+        android:layout_toEndOf="@+id/textView9" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Notify Via:"
-        android:id="@+id/textView19"
+        android:id="@+id/textView20"
         android:textSize="20dp"
         android:textColor="@android:color/black"
         android:typeface="serif"
         android:textStyle="bold"
-        android:layout_marginBottom="10dp"
-        android:layout_above="@+id/button4"
-        android:layout_alignLeft="@+id/button4"
-        android:layout_alignStart="@+id/button4" />
+        android:layout_below="@+id/button3"
+        android:layout_alignLeft="@+id/textView9"
+        android:layout_alignStart="@+id/textView9" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
+        android:id="@+id/imageButton2"
         android:src="@drawable/email"
         android:background="@android:color/transparent"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/button3"
-        android:layout_toEndOf="@+id/button3"
-        android:onClick="emailme"/>
+        android:layout_alignRight="@+id/name"
+        android:layout_alignEnd="@+id/name"
+        android:onClick="emailme1"/>
 
 
 </RelativeLayout>

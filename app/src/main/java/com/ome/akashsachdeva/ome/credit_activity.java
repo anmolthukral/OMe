@@ -21,7 +21,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
-//udhar
+//hmara udhar
 public class credit_activity extends ActionBarActivity {
 
     ImageButton FAB;
@@ -71,12 +71,12 @@ public class credit_activity extends ActionBarActivity {
     }
 
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }
+    }*/
 
 
   /*  public boolean onKeyDown(int keycode, KeyEvent event) {
@@ -85,5 +85,9 @@ public class credit_activity extends ActionBarActivity {
         }
         return super.onKeyDown(keycode, event);
     } */
-
+  @Override
+  public void onBackPressed()
+  {
+      finish();
+  }
 }

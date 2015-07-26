@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -132,6 +133,16 @@ public class SecondActivity_debit extends ActionBarActivity {
         it.putExtra("sms_body", "Dear " + mydb.getname(id_To_Update) + ", Please return my " + mydb.getamount(id_To_Update) + " bucks ASAP!");
         startActivity(it);
     }
+    public void emailme(View v){
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, mydb.getemail(id_To_Update));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Reminder to return my money");
+        emailIntent.putExtra(Intent.EXTRA_TEXT,"Dear " + mydb.getname(id_To_Update) + ", Please return my " + mydb.getamount(id_To_Update) + " bucks ASAP!");
+        startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -203,5 +214,9 @@ public class SecondActivity_debit extends ActionBarActivity {
 
         }
     }
-
+    @Override
+    public void onBackPressed()
+    {
+        finish();
+    }
 }

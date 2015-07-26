@@ -161,14 +161,14 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
         return dat;
     }
-    public Integer getemail(int id){
-        int dat =0;
+    public String getemail(int id){
+        String dat ="";
         SQLiteDatabase db = getReadableDatabase();
 
         Cursor cursor = db.rawQuery(
                 "SELECT email FROM userdata1 where id="+id+"", null);
         if(cursor.moveToFirst()) {
-            dat = cursor.getInt(0);
+            dat = cursor.getString(0);
         }
 
         return dat;

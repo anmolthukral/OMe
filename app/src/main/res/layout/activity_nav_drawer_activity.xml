@@ -47,12 +47,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Debit"
-            android:layout_marginBottom="95dp"
+            android:layout_marginBottom="32dp"
             android:id="@+id/button2"
             android:onClick="debitbutton"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:background="@android:color/holo_blue_bright" />
+            android:background="@android:color/holo_blue_bright"
+            android:layout_above="@+id/horizontalScrollView"
+            android:layout_centerHorizontal="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -64,7 +64,8 @@
             android:layout_toLeftOf="@+id/button"
             android:layout_toStartOf="@+id/button"
             android:layout_marginTop="107dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -76,7 +77,8 @@
             android:layout_alignTop="@+id/textView2"
             android:layout_alignLeft="@+id/textView2"
             android:layout_alignStart="@+id/textView2"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -84,11 +86,11 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="totalcreditprint"
             android:id="@+id/textView5"
+            android:layout_marginLeft="25dp"
+            android:layout_marginStart="31dp"
             android:layout_alignTop="@+id/textView2"
-            android:layout_alignLeft="@+id/button"
-            android:layout_alignStart="@+id/button"
-            android:layout_marginLeft="38dp"
-            android:layout_marginStart="38dp" />
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -123,89 +125,100 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="match_parent"
+                android:layout_width="500dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:background="@android:color/holo_orange_dark">
+                android:layout_alignParentStart="true">
 
 
 
-                <ImageView
+                <ImageButton
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:id="@+id/imageView2"
                     android:layout_gravity="bottom"
                     android:src="@drawable/fb"
                     android:layout_marginLeft="30dp"
+                    android:onClick="fbme"
                     />
 
 
 
 
-                <ImageView
+                <ImageButton
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:id="@+id/imageView4"
                     android:src="@drawable/wh2"
+                    android:background="@android:color/transparent"
                     android:layout_alignParentBottom="true"
                     android:layout_toRightOf="@+id/imageView5"
                     android:layout_toEndOf="@+id/imageView5"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginStart="70dp" />
+                    android:layout_marginStart="70dp"
+                    android:onClick="whatsappme"
+                    />
 
-                <ImageView
+                <ImageButton
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:id="@+id/imageView3"
-                    android:src="@drawable/tw1"
+                    android:src="@mipmap/tw"
+                    android:background="@android:color/transparent"
                     android:layout_marginLeft="30dp"
                     android:layout_marginStart="41dp"
                     android:layout_alignTop="@+id/horizontalScrollView"
                     android:layout_toRightOf="@+id/horizontalScrollView"
-                    android:layout_toEndOf="@+id/horizontalScrollView" />
+                    android:layout_toEndOf="@+id/horizontalScrollView"
+                    android:onClick="tweetme"
+                    />
 
-                <ImageView
+                <ImageButton
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:id="@+id/imageView7"
-                    android:src="@drawable/em"
+                    android:src="@mipmap/em"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginStart="43dp" />
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/imageView5"
-                    android:layout_gravity="bottom"
-                    android:src="@drawable/sh"
-                    android:layout_alignTop="@+id/horizontalScrollView"
-                    android:layout_toRightOf="@+id/horizontalScrollView"
-                    android:layout_toEndOf="@+id/horizontalScrollView"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginStart="31dp" />
+                    android:layout_marginStart="43dp"
+                    android:onClick="emame"
+                    />
 
 
-
-                <ImageView
+                <ImageButton
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:id="@+id/imageView6"
-                    android:src="@drawable/goog"
+                    android:src="@mipmap/goog"
                     android:layout_alignParentBottom="true"
                     android:layout_toRightOf="@+id/horizontalScrollView"
                     android:layout_toEndOf="@+id/horizontalScrollView"
                     android:layout_marginLeft="30dp"
                     android:layout_marginStart="55dp"
+                    android:onClick="gpme"
+
                     />
 
 
             </LinearLayout>
         </HorizontalScrollView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Share App Via:"
+            android:id="@+id/textView21"
+            android:layout_above="@+id/horizontalScrollView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+
+
 
     </RelativeLayout>
 

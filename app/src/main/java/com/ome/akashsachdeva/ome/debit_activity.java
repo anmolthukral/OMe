@@ -3,6 +3,7 @@ package com.ome.akashsachdeva.ome;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 /**
  * Created by AkashSachdeva on 17-07-2015.
  */
-public class debit_activity extends Activity {
+public class debit_activity extends ActionBarActivity {
     ImageButton FAB;
     MyDBHandler_debit mydb;
     private ListView obj;
@@ -59,10 +60,15 @@ public class debit_activity extends Activity {
         });
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }
+    }*/
+   @Override
+   public void onBackPressed()
+   {
+       finish();
+   }
 }

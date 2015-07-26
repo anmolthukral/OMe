@@ -1,7 +1,12 @@
 package com.ome.akashsachdeva.ome;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -23,6 +28,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
 
 
 public class nav_drawer_activity extends ActionBarActivity
@@ -84,6 +91,49 @@ public class nav_drawer_activity extends ActionBarActivity
 
 
     }
+
+    public void whatsappme(View v){
+        Intent i= new Intent();
+        i.setPackage("com.whatsapp");
+        i.setAction(Intent.ACTION_SEND);
+        i.putExtra(Intent.EXTRA_TEXT, "Please share this app,i.e:link");
+        i.setType("text/plain");
+        startActivity(i);
+    }
+
+    public void fbme(View v){
+        String message = "Hi guys, pl share this wonderful app:";
+        Intent share = new Intent(Intent.ACTION_SEND);
+        share.setType("text/plain");
+        share.putExtra(Intent.EXTRA_TEXT, message);
+        startActivity(Intent.createChooser(share, "Facebook Share"));
+
+    }
+    public void tweetme(View v){
+        String message = "Hi guys, pl share this wonderful app:";
+        Intent share = new Intent(Intent.ACTION_SEND);
+        share.setType("text/plain");
+        share.putExtra(Intent.EXTRA_TEXT, message);
+        startActivity(Intent.createChooser(share, "Twitter Share"));
+    }
+    public void emame(View v){
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "App Share");
+        emailIntent.putExtra(Intent.EXTRA_TEXT,"Hi guys, pl share this wonderful app:");
+        startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+
+    }
+    public void gpme(View v){
+
+        String message = "Hi guys, pl share this wonderful app:";
+        Intent share = new Intent(Intent.ACTION_SEND);
+        share.setType("text/plain");
+        share.putExtra(Intent.EXTRA_TEXT, message);
+        startActivity(Intent.createChooser(share, "Google+ Share"));
+
+    }
     public void printdb_credit(){
         Integer dbString = mydb.dbtostr();
         String str = dbString.toString();
@@ -121,10 +171,7 @@ public class nav_drawer_activity extends ActionBarActivity
                 startActivity(b);
                 break;
 
-            case 2:
-
-               break;
-            case 3:
+             case 2:
                 Intent c = new Intent(nav_drawer_activity.this, about_activity.class);
                 startActivity(c);
                 break;
@@ -147,15 +194,12 @@ public class nav_drawer_activity extends ActionBarActivity
             case 2:
                 mTitle = getString(R.string.title_section2);
                 break;
+          //  case 3:
+              //  mTitle = getString(R.string.title_section3);
+               // break;
             case 3:
-                mTitle = getString(R.string.title_section3);
-                break;
-            case 4:
                 mTitle = getString(R.string.title_section4);
                 break;
-//            case 3:
-  //              mTitle = getString(R.string.title_section3);
-    //            break;
         }
     }
 
