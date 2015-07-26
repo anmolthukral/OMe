@@ -96,13 +96,13 @@ public class nav_drawer_activity extends ActionBarActivity
         Intent i= new Intent();
         i.setPackage("com.whatsapp");
         i.setAction(Intent.ACTION_SEND);
-        i.putExtra(Intent.EXTRA_TEXT, "Please share this app,i.e:link");
+        i.putExtra(Intent.EXTRA_TEXT, "Please share this app,i.e:http://www.mediafire.com/download/ybklpqudfqioc0q/ome_final.apk");
         i.setType("text/plain");
         startActivity(i);
     }
 
     public void fbme(View v){
-        String message = "Hi guys, pl share this wonderful app:";
+        String message = "Hi guys, pl share this wonderful app http://www.mediafire.com/download/ybklpqudfqioc0q/ome_final.apk";
         Intent share = new Intent(Intent.ACTION_SEND);
         share.setType("text/plain");
         share.putExtra(Intent.EXTRA_TEXT, message);
@@ -110,7 +110,7 @@ public class nav_drawer_activity extends ActionBarActivity
 
     }
     public void tweetme(View v){
-        String message = "Hi guys, pl share this wonderful app:";
+        String message = "Hi guys, pl share this wonderful app http://www.mediafire.com/download/ybklpqudfqioc0q/ome_final.apk";
         Intent share = new Intent(Intent.ACTION_SEND);
         share.setType("text/plain");
         share.putExtra(Intent.EXTRA_TEXT, message);
@@ -121,13 +121,13 @@ public class nav_drawer_activity extends ActionBarActivity
         emailIntent.setData(Uri.parse("mailto:"));
         emailIntent.setType("text/plain");
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "App Share");
-        emailIntent.putExtra(Intent.EXTRA_TEXT,"Hi guys, pl share this wonderful app:");
+        emailIntent.putExtra(Intent.EXTRA_TEXT,"Hi guys, pl share this wonderful app http://www.mediafire.com/download/ybklpqudfqioc0q/ome_final.apk");
         startActivity(Intent.createChooser(emailIntent, "Send mail..."));
 
     }
     public void gpme(View v){
 
-        String message = "Hi guys, pl share this wonderful app:";
+        String message = "Hi guys, pl share this wonderful app http://www.mediafire.com/download/ybklpqudfqioc0q/ome_final.apk";
         Intent share = new Intent(Intent.ACTION_SEND);
         share.setType("text/plain");
         share.putExtra(Intent.EXTRA_TEXT, message);
