@@ -1,5 +1,6 @@
 package com.ome.akashsachdeva.ome;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -34,7 +35,7 @@ public class SecondActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_second_credit);
 
         // toolbar = (Toolbar) findViewById(R.id.toolbar);
         // setSupportActionBar(toolbar);
@@ -73,10 +74,10 @@ public class SecondActivity extends ActionBarActivity {
             }
         });
 
-        name = (TextView) findViewById(R.id.editText);
-        email = (TextView) findViewById(R.id.editText3);
-        amount = (TextView) findViewById(R.id.editText2);
-        number = (TextView) findViewById(R.id.editText4);
+        name = (TextView) findViewById(R.id.name);
+        email = (TextView) findViewById(R.id.email);
+        amount = (TextView) findViewById(R.id.amount);
+        number = (TextView) findViewById(R.id.mobile);
 
         mydb = new MyDBHandler(this);
 
@@ -92,7 +93,7 @@ public class SecondActivity extends ActionBarActivity {
                 String nam = rs.getString(rs.getColumnIndex(MyDBHandler.COLUMN_NAME));
                 String emai = rs.getString(rs.getColumnIndex(MyDBHandler.COLUMN_EMAIL));
                 String amo = rs.getString(rs.getColumnIndex(MyDBHandler.COLUMN_AMOUNT));
-                String num = rs.getString(rs.getColumnIndex(MyDBHandler_debit.COLUMN_NUMBER));
+                String num = rs.getString(rs.getColumnIndex(MyDBHandler.COLUMN_NUMBER));
 
                 if (!rs.isClosed()) {
                     rs.close();
@@ -122,7 +123,19 @@ public class SecondActivity extends ActionBarActivity {
             }
         }
     }
-
+    public void callme1(View v)
+    {
+        Intent i= new Intent();
+        i.setData(Uri.parse("tel:" + mydb.getnum(id_To_Update)));
+        i.setAction(Intent.ACTION_CALL);
+        startActivity(i);
+    }
+    public void smsme1(View v) {
+        Uri uri = Uri.parse("smsto:"+mydb.getnum(id_To_Update));
+        Intent it = new Intent(Intent.ACTION_SENDTO, uri);
+        it.putExtra("sms_body", "Dear "+mydb.getname(id_To_Update)+", I will be returning your "+mydb.getamount(id_To_Update)+" bucks ASAP!" );
+        startActivity(it);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

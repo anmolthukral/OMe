@@ -135,5 +135,25 @@
         android:layout_alignBottom="@+id/textView9"
       />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="call"
+        android:id="@+id/button4"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/textView8"
+        android:layout_alignStart="@+id/textView8"
+        android:onClick="callme"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sms"
+        android:id="@+id/button5"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textView9"
+        android:layout_toEndOf="@+id/textView9"
+        android:onClick="smsme" />
+
 
 </RelativeLayout>

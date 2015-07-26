@@ -86,7 +86,7 @@ public class MyDBHandler_debit extends SQLiteOpenHelper {
         contentValues.put("email", email);
         contentValues.put("amount", amount);
         contentValues.put("number", number);
-        db.update("userdata2", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
+        db.update("userdata2", contentValues, "id = ? ", new String[]{Integer.toString(id)});
         return true;
     }
 
@@ -125,4 +125,53 @@ public class MyDBHandler_debit extends SQLiteOpenHelper {
 
         return dat;
     }
+    public Integer getnum(int id){
+        int dat =0;
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(
+                "SELECT number FROM userdata2 where id="+id+"", null);
+        if(cursor.moveToFirst()) {
+            dat = cursor.getInt(0);
+        }
+
+        return dat;
+    }
+    public Integer getamount(int id){
+        int dat =0;
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(
+                "SELECT amount FROM userdata2 where id="+id+"", null);
+        if(cursor.moveToFirst()) {
+            dat = cursor.getInt(0);
+        }
+
+        return dat;
+    }
+    public String getname(int id){
+        String dat ="";
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(
+                "SELECT name FROM userdata2 where id="+id+"", null);
+        if(cursor.moveToFirst()) {
+            dat = cursor.getString(0);
+        }
+
+        return dat;
+    }
+    public Integer getemail(int id){
+        int dat =0;
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(
+                "SELECT email FROM userdata2 where id="+id+"", null);
+        if(cursor.moveToFirst()) {
+            dat = cursor.getInt(0);
+        }
+
+        return dat;
+    }
+
 }

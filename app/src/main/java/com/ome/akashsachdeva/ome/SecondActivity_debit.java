@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -118,7 +119,19 @@ public class SecondActivity_debit extends ActionBarActivity {
         }
     }
 
-
+    public void callme(View v)
+    {
+        Intent i= new Intent();
+        i.setData(Uri.parse("tel:" + mydb.getnum(id_To_Update)));
+        i.setAction(Intent.ACTION_CALL);
+        startActivity(i);
+    }
+    public void smsme(View v) {
+        Uri uri = Uri.parse("smsto:"+mydb.getnum(id_To_Update));
+        Intent it = new Intent(Intent.ACTION_SENDTO, uri);
+        it.putExtra("sms_body", "Dear " + mydb.getname(id_To_Update) + ", Please return my " + mydb.getamount(id_To_Update) + " bucks ASAP!");
+        startActivity(it);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
